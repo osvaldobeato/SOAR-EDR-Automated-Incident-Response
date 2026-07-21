@@ -204,6 +204,20 @@ Final end-to-end SOAR workflow demonstrating automated detection, analyst notifi
 
 ---
 
+# Incident Response Playbook 
+
+| Step | Action                                                                                                                                                                              | Expected Outcome                                                                          |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| 1    | Tines Story is triggered after a detection is received from LimaCharlie.                                                                                                            | Automated SOAR workflow begins.                                                           |
+| 2    | LimaCharlie detects HackTool activity and forwards the alert to Tines.                                                                                                              | Security event is automatically ingested into the workflow.                               |
+| 3    | Tines sends enriched notifications to Slack and Email containing: Time, Computer Name, Source IP, Process, Command Line, File Path, Sensor ID, and Detection Link (when available). | Analysts receive all necessary investigation details without manually gathering evidence. |
+| 4    | Tines prompts the analyst to decide whether the endpoint should be isolated.                                                                                                        | Human approval is required before containment.                                            |
+| 5A   | **If YES:** LimaCharlie automatically isolates the endpoint and sends a Slack notification confirming the isolation status.                                                         | The compromised endpoint is contained while preserving analyst oversight.                 |
+| 5B   | **If NO:** The endpoint remains online and Slack notifies the analyst that no isolation occurred and additional investigation is required.                                          | Analysts retain full control when automated containment is not appropriate.               |
+
+
+---
+
 # Indicators of Compromise
 
 | Indicator                       | Description                                                   |
